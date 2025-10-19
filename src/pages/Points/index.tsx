@@ -9,6 +9,8 @@ import { Marker } from 'react-native-maps';
 import { useEffect } from 'react';
 import * as Location from 'expo-location';
 import api from '../../services/api';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { AppStackParamList } from '../../routes';
 
 interface Item {
   id: number;
@@ -22,7 +24,7 @@ const Points = () => {
 
   const [initialPosition, setInitialPosition] = useState<[number, number]>([0, 0]);
 
-  const navigation = useNavigation();
+  const navigation = useNavigation<StackNavigationProp<AppStackParamList, 'Points'>>();
 
   useEffect(() => {
     async function loadPosition() {

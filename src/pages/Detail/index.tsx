@@ -3,9 +3,11 @@ import { Feather as Icon, FontAwesome } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { Text, StyleSheet, View, TouchableOpacity, Image, SafeAreaView } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { AppStackParamList } from '../../routes';
 
 const Detail = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<StackNavigationProp<AppStackParamList, 'Detail'>>();
 
   function handleNavigateBack() {
     navigation.goBack();

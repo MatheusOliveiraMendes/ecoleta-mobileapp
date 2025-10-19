@@ -1,11 +1,24 @@
 import React from 'react';
 import { Feather as Icon } from '@expo/vector-icons';
-import { View, ImageBackground, Image, Text, StyleSheet, TextInput, KeyboardAvoidingView, Platform } from 'react-native';
+import {
+  View,
+  ImageBackground,
+  Image,
+  Text,
+  StyleSheet,
+  TextInput,
+  KeyboardAvoidingView,
+  Platform,
+} from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+
+import { AppStackParamList } from '../../routes';
 
 const Home = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<StackNavigationProp<AppStackParamList, 'Home'>>();
+  const keyboardBehavior = Platform.OS === 'ios' ? 'padding' : undefined;
 
   function handleNavigationToPoints() {
     navigation.navigate('Points');
@@ -14,7 +27,7 @@ const Home = () => {
   return (
     <KeyboardAvoidingView 
     style={{ flex: 1 }} 
-    behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+    behavior={keyboardBehavior}
     >
       
     <ImageBackground source={require('../../assets/home-background.png')}
@@ -51,7 +64,7 @@ const Home = () => {
         </RectButton>
       </View>
 
-    </  ImageBackground>
+    </ImageBackground>
     </KeyboardAvoidingView>
   );
 };
