@@ -5,6 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Home from './pages/Home';
 import Points from './pages/Points';
 import Detail from './pages/Detail';
+import theme from './styles/theme';
 
 export type AppStackParamList = {
   Home: undefined;
@@ -20,7 +21,7 @@ const Routes = () => {
       <AppStack.Navigator
         screenOptions={{
           headerShown: false,
-          cardStyle: { backgroundColor: '#f0f0f5' },
+          cardStyle: { backgroundColor: theme.colors.background },
         }}
       >
         <AppStack.Screen name="Home" component={Home} />
